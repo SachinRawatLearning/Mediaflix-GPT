@@ -3,7 +3,16 @@
 - Create React App
 - Configured Tailwind CSS
 - Header
+- Routing of App
 - Login Form
+- Sign Up Form
+- Form Validation
+- useRef Hook
+- Fireabase setup
+- deploying our app to production
+- Create Signup User Account
+- Implement SignIn User API
+- Created Redux Store with user slice
 
 # Features
 
@@ -22,3 +31,8 @@
 - Netflix GPT
     - Search Bar
     - Movie Suggestions
+
+
+
+- Notes
+    - Used firebase to deploy the app
