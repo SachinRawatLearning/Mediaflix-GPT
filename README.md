@@ -1,4 +1,5 @@
 # Netflix - GPT
+Hosted on [text](https://netflix-gpt-a93ae.web.app/)
 
 - Create React App
 - Configured Tailwind CSS
