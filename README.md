@@ -14,6 +14,9 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Create Signup User Account
 - Implement SignIn User API
 - Created Redux Store with user slice
+- Implemented Sign Out
+- Update Profile
+- Fetch Movies from TMDB
 
 # Features
 
