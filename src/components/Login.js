@@ -7,9 +7,9 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
+import { BACKGROUND_IMG, USER_AVATAR_IMG } from "./utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,7 +17,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleButtonCLick = () => {
@@ -43,8 +42,7 @@ const Login = () => {
           const { user } = userCredentials;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://occ-0-3365-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABYOhzCUj6pGm1zruz-Q4YzX78W3Cienb1j0sf4w_5-F5ZRtbZpAQu0F8WYGb3FFSV-t5OJuWYr-63sPLbA1CfigbGUosCJ4.png?r=0a4",
+            photoURL: USER_AVATAR_IMG,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -56,7 +54,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -77,7 +74,6 @@ const Login = () => {
         .then((userCredentials) => {
           const user = userCredentials.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -96,10 +92,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/41c789f0-7df5-4219-94c6-c66fe500590a/3149e5eb-4660-4e3d-9e65-b1e615229c64/IN-en-20240513-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="backgroundImage"
-        ></img>
+        <img src={BACKGROUND_IMG} alt="backgroundImage"></img>
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}

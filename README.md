@@ -16,7 +16,9 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Created Redux Store with user slice
 - Implemented Sign Out
 - Update Profile
-- Fetch Movies from TMDB
+- Safe Routing
+- Unsubscribed to onAuthStateChanged callback
+- Fetch Movies from TMDB (The Movie Database)
 
 # Features
 
