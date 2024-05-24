@@ -19,6 +19,7 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Safe Routing
 - Unsubscribed to onAuthStateChanged callback
 - Fetch Movies from TMDB (The Movie Database)
+- 
 
 # Features
 
