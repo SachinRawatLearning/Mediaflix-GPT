@@ -3,8 +3,12 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
+import GPTSearch from "./GPTSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
+  const isShowGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   //Fetch movies from TMDB in custom hooks and update the store.
   useNowPlayingMovies();
   usePopularMovies();
@@ -12,6 +16,16 @@ const Browse = () => {
   return (
     <div>
       <Header />
+      {isShowGptSearch ? (
+        <GPTSearch />
+      ) : (
+        <>
+          {" "}
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
+
       {/*
         Main Container
           - Video Background
@@ -21,8 +35,6 @@ const Browse = () => {
           - Movie List * n
             - cards * n
       */}
-      <MainContainer />
-      <SecondaryContainer />
     </div>
   );
 };

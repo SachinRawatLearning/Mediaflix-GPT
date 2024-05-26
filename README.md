@@ -1,4 +1,5 @@
 # Netflix - GPT
+
 Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 
 - Create React App
@@ -19,27 +20,28 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Safe Routing
 - Unsubscribed to onAuthStateChanged callback
 - Fetch Movies from TMDB (The Movie Database)
-- 
+- GPT Search Feature
 
 # Features
 
 - Login/Sign Up
-    - Sign In/ Sign Up Form
-    - Redirect to Browse Page
+
+  - Sign In/ Sign Up Form
+  - Redirect to Browse Page
 
 - Browse Page (after authenication)
-    - Header
-    - Main Movie
-        - Trailer in Background
-        - Movie Title and Description
-    - Movie Suggestions
-        -Movie List * n (n-> number of movies)
+
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Movie Title and Description
+  - Movie Suggestions
+    -Movie List \* n (n-> number of movies)
 
 - Netflix GPT
-    - Search Bar
-    - Movie Suggestions
 
-
+  - Search Bar
+  - Movie Suggestions
 
 - Notes
-    - Used firebase to deploy the app
+  - Used firebase to deploy the app
