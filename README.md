@@ -21,6 +21,7 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Unsubscribed to onAuthStateChanged callback
 - Fetch Movies from TMDB (The Movie Database)
 - GPT Search Feature
+- Multi-language Feature in our App 
 
 # Features
 
