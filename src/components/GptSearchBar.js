@@ -2,10 +2,22 @@ import React, { useRef } from "react";
 import lang from "./utils/languageConstants";
 import { useSelector } from "react-redux";
 import openAi from "./utils/openAi";
+import { API_OPTIONS } from "./utils/constants";
 
 const GptSearchBar = () => {
   const language = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+
+  //Search Moive in TMDB
+  const searchMovieTMDB = async (movie) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${movie}`,
+      API_OPTIONS
+    );
+    const json = await data.json();
+
+    return json.results;
+  };
 
   const handleGptSearchClick = async () => {
     //Form a query for gpt api to understand properly.
@@ -22,9 +34,14 @@ const GptSearchBar = () => {
     }
 
     console.log(gptResults.choices?.[0]?.message?.content);
-    const gptMovieList = gptResults.choices?.[0]?.message?.content.split(",");
+    const gptMovieList = gptResults.choices?.[0]?.message?.content.split(", ");
 
-    
+    //For each Movie, serch TMDB API
+    const promiseArray = gptMovieList.map((movie) => {
+      searchMovieTMDB(movie);
+    }); // Returns an array of promises as searchMovieTMDB is an async function.
+
+    const tmdbResults = await Promise.all(promiseArray);
   };
 
   return (

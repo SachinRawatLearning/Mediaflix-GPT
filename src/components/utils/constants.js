@@ -25,4 +25,4 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPEN_AI_KEY =
-  "sk-proj-DDA4LHFLMODX7qkbbKvmT3BlbkFJHYVjxmtmXx423mxOUQqW";
+  "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";
