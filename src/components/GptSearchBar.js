@@ -3,10 +3,13 @@ import lang from "./utils/languageConstants";
 import { useSelector } from "react-redux";
 import openAi from "./utils/openAi";
 import { API_OPTIONS } from "./utils/constants";
+import { useDispatch } from "react-redux";
+import { addGptMovieResult } from "./utils/gptSlice";
 
 const GptSearchBar = () => {
   const language = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  const dispatch = useDispatch();
 
   //Search Moive in TMDB
   const searchMovieTMDB = async (movie) => {
@@ -42,6 +45,9 @@ const GptSearchBar = () => {
     }); // Returns an array of promises as searchMovieTMDB is an async function.
 
     const tmdbResults = await Promise.all(promiseArray);
+    dispatch(
+      addGptMovieResult({ moviesName: gptMovieList, movieResults: tmdbResults })
+    );
   };
 
   return (
