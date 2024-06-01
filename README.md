@@ -22,6 +22,7 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Fetch Movies from TMDB (The Movie Database)
 - GPT Search Feature
 - Multi-language Feature in our App 
+- Memoization
 
 # Features
 
@@ -46,3 +47,7 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 
 - Notes
   - Used firebase to deploy the app
+
+- Addtional Featured to dev:
+  - When clicked on any movie, should load trailer and description about the movie.
+  - Remove Scrollbar from Movie List

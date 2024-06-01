@@ -8,10 +8,15 @@ const GptMovieSuggestions = () => {
   if (!movieNames) return null; //Can show Shimmer UI or Error Component
 
   return (
-    <div className="p-4 m-4 bg-black text-white">
+    <div className="p-4 m-4 bg-black text-white bg-opacity-85">
       <div>
-        <h1>}</h1>
-        <MovieList title={movieNames[0]} movies={movieResults[0]}></MovieList>
+        {movieNames.map((movie, index) => (
+          <MovieList
+            key={movie}
+            title={movie}
+            movies={movieResults[index]}
+          ></MovieList>
+        ))}
       </div>
     </div>
   );
