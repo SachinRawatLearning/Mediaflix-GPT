@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import lang from "./utils/languageConstants";
-import { useSelector } from "react-redux";
-import openAi from "./utils/openAi";
+import { useSelector, useDispatch } from "react-redux";
+import openai from "./utils/openAi";
 import { API_OPTIONS } from "./utils/constants";
-import { useDispatch } from "react-redux";
 import { addGptMovieResult } from "./utils/gptSlice";
 
 const GptSearchBar = () => {
@@ -24,36 +23,38 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
     //Form a query for gpt api to understand properly.
-    const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query ${searchText.current.value}. Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Godzilla, Sholay, Don, Avengers, How to train your Dragon`;
+    // const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query ${searchText.current.value}. Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Godzilla, Sholay, Don, Avengers, How to train your Dragon`;
 
-    // Make an API Call to GPT API and get Movie Results
-    const gptResults = await openAi.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
+    // // Make an API Call to GPT API and get Movie Results
+    // const gptResults = await openai.chat.completions.create({
+    //   messages: [{ role: "user", content: gptQuery }],
+    //   model: "gpt-3.5-turbo",
+    // });
+    // if (!gptResults.choices) {
+    //   //TO DO: Error Handling
+    // }
 
-    if (!gptResults.choices) {
-      //TO DO: Error Handling
-    }
-
-    console.log(gptResults.choices?.[0]?.message?.content);
-    const gptMovieList = gptResults.choices?.[0]?.message?.content.split(", ");
+    // console.log(gptResults.choices?.[0]?.message?.content);
+    // const gptMovieList = gptResults.choices?.[0]?.message?.content.split(", ");
+    const gptMovieList =
+      "Hera Pheri, Andaz Apna Apna, Golmaal: Fun Unlimited, 3 Idiots, PK".split(
+        ", "
+      );
 
     //For each Movie, serch TMDB API
-    const promiseArray = gptMovieList.map((movie) => {
-      searchMovieTMDB(movie);
-    }); // Returns an array of promises as searchMovieTMDB is an async function.
+    const promiseArray = gptMovieList.map((movie) => searchMovieTMDB(movie)); // Returns an array of promises as searchMovieTMDB is an async function.
 
     const tmdbResults = await Promise.all(promiseArray);
+
     dispatch(
-      addGptMovieResult({ moviesName: gptMovieList, movieResults: tmdbResults })
+      addGptMovieResult({ movieNames: gptMovieList, movieResults: tmdbResults })
     );
   };
 
   return (
-    <div className="pt-[15%] flex justify-center">
+    <div className="pt-[50%] md:pt-[15%] flex justify-center">
       <form
-        className="bg-gray-800 w-1/2 grid grid-cols-12 rounded-lg"
+        className="bg-black w-full md:w-1/2 grid grid-cols-12 rounded-lg"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

@@ -22,7 +22,9 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Fetch Movies from TMDB (The Movie Database)
 - GPT Search Feature
 - Multi-language Feature in our App 
+- Integrate Open API with app
 - Memoization
+- Made Site Responsive
 
 # Features
 
