@@ -5,6 +5,8 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
 import GPTSearch from "./GPTSearch";
 import { useSelector } from "react-redux";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useOnTheAirMovies from "../hooks/useOnTheAirMovies";
 
 const Browse = () => {
   const isShowGptSearch = useSelector((store) => store.gpt.showGptSearch);
@@ -12,9 +14,11 @@ const Browse = () => {
   //Fetch movies from TMDB in custom hooks and update the store.
   useNowPlayingMovies();
   usePopularMovies();
+  useTopRatedMovies();
+  useOnTheAirMovies();
 
   return (
-    <div>
+    <div className="">
       <Header />
       {isShowGptSearch ? (
         <GPTSearch />

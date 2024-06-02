@@ -53,3 +53,4 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
 - Addtional Featured to dev:
   - When clicked on any movie, should load trailer and description about the movie.
   - Remove Scrollbar from Movie List
+  - Add more Movie lists
