@@ -23,23 +23,19 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
     //Form a query for gpt api to understand properly.
-    // const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query ${searchText.current.value}. Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Godzilla, Sholay, Don, Avengers, How to train your Dragon`;
+    const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query ${searchText.current.value}. Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Godzilla, Sholay, Don, Avengers, How to train your Dragon`;
 
-    // // Make an API Call to GPT API and get Movie Results
-    // const gptResults = await openai.chat.completions.create({
-    //   messages: [{ role: "user", content: gptQuery }],
-    //   model: "gpt-3.5-turbo",
-    // });
-    // if (!gptResults.choices) {
-    //   //TO DO: Error Handling
-    // }
+    // Make an API Call to GPT API and get Movie Results
+    const gptResults = await openai.chat.completions.create({
+      messages: [{ role: "user", content: gptQuery }],
+      model: "gpt-3.5-turbo",
+    });
+    if (!gptResults.choices) {
+      //TO DO: Error Handling
+    }
 
-    // console.log(gptResults.choices?.[0]?.message?.content);
-    // const gptMovieList = gptResults.choices?.[0]?.message?.content.split(", ");
-    const gptMovieList =
-      "Hera Pheri, Andaz Apna Apna, Golmaal: Fun Unlimited, 3 Idiots, PK".split(
-        ", "
-      );
+    console.log(gptResults.choices?.[0]?.message?.content);
+    const gptMovieList = gptResults.choices?.[0]?.message?.content.split(", ");
 
     //For each Movie, serch TMDB API
     const promiseArray = gptMovieList.map((movie) => searchMovieTMDB(movie)); // Returns an array of promises as searchMovieTMDB is an async function.
