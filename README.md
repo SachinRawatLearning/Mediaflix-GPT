@@ -1,6 +1,6 @@
 # Mediaflix - GPT
 
-Hosted on [Mediaflix-gpt](https://netflix-gpt-a93ae.web.app/)
+Hosted on [Mediaflix-gpt](https://mediaflixgpt.web.app/)
 
 - Create React App
 - Configured Tailwind CSS

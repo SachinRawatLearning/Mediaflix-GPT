@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "netflix-gpt-a93ae"
-  }
+    "Mediaflixgpt": "mediaflixgpt"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
