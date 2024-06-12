@@ -1,6 +1,6 @@
-# Netflix - GPT
+# Mediaflix - GPT
 
-Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
+Hosted on [Mediaflix-gpt](https://netflix-gpt-a93ae.web.app/)
 
 - Create React App
 - Configured Tailwind CSS
@@ -42,7 +42,7 @@ Hosted on [netflix-gpt](https://netflix-gpt-a93ae.web.app/)
   - Movie Suggestions
     -Movie List \* n (n-> number of movies)
 
-- Netflix GPT
+- Mediaflix GPT
 
   - Search Bar
   - Movie Suggestions

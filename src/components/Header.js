@@ -4,7 +4,7 @@ import { auth } from "./utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addUser, removeUser } from "./utils/userSlice";
-import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from "./utils/constants";
+import { MEDIAFLIX_LOGO, SUPPORTED_LANGUAGES } from "./utils/constants";
 import { toggleGptSearchView } from "./utils/gptSlice";
 import { changeLanguage } from "./utils/configSlice";
 
@@ -55,7 +55,11 @@ const Header = () => {
 
   return (
     <div className="absolute px-36 py-2 bg-gradient-to-b from-black z-10 w-screen flex flex-col md:flex-row  md:justify-between pl-5">
-      <img className="w-48 mx-auto md:m-0" src={NETFLIX_LOGO} alt="logo" />
+      <img
+        className="w-20 h-15 mx-auto md:m-0"
+        src={MEDIAFLIX_LOGO}
+        alt="logo"
+      />
       {user && (
         <div className="flex py-6 justify-between">
           {showGptSearch && (
@@ -76,7 +80,11 @@ const Header = () => {
           >
             {!showGptSearch ? "GPT Search" : "Homepage"}
           </button>
-          <img alt="userIcon" className="w-10 h-10 hidden md:inline-block" src={user.photoURL} />
+          <img
+            alt="userIcon"
+            className="w-10 h-10 hidden md:inline-block"
+            src={user.photoURL}
+          />
           <button className="font-bold text-white m-2" onClick={handleSignOut}>
             Sign Out
           </button>
